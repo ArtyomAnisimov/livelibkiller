@@ -1,0 +1,1 @@
+Delete it, when wil create the first migration.
