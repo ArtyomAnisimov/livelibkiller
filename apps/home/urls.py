@@ -1,7 +1,6 @@
 from django.conf.urls import url, include
-from . import views
+from .views import HomeView
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-	url(r'^$', views.home_view, name='home_view'),
+	url(r'^$', HomeView.as_view),
 	]

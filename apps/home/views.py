@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post
+from django.views.generic import TemplateView
 
-def home_view(request):
-    return render(request, '/home/index.html')
+class HomeView(TemplateView):
+    template_name = "/home/index.html"
