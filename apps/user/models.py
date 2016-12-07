@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class UsersBook(models.Model):
 	id = models.AutoField(primary_key=True)
-	name = models.CharField(verbose_name=u'Название',max_length=200)
+	book_name = models.CharField(verbose_name=u'Название',max_length=200)
 	comment = models.CharField(verbose_name=u'Комментарий',max_length=200)
 	user = models.ForeignKey('auth.User',verbose_name=u'Пользователь')
 	fav = models.BooleanField()
@@ -17,4 +17,4 @@ class UsersBook(models.Model):
         return str(self.name)
 
 class UserProfile(models.Model):
-    pass
+    user_profile= "/apps/templates/user/index.html
