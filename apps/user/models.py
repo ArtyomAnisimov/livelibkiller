@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class UsersBook(models.Model):
-    pass
+    book_name = "/apps/books/models.py"
 
 
 class UserProfile(models.Model):
-    pass
+    user_profile= "/apps/templates/user/index.html
