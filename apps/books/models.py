@@ -3,7 +3,7 @@ from django.db import models
 
 class Book(models.Model):
     title = models.CharField(verbose_name="Заголовок", max_length=50)   
-    cover = models.ImageField(verbose_name="Обложка", upload_to=name_of_cover(), blank=True, null=True)
+    cover = models.ImageField(verbose_name="Обложка", blank=True, null=True)
     name = models.CharField(verbose_name="Название", max_length=50)
     author = models.CharField(verbose_name="Автор", max_length=50)
     genre = models.CharField(verbose_name="Жанр", max_length=50)
