@@ -13,6 +13,9 @@
 
 {% block body %}
     <body>
+	{% block navbar %}
+		{% include 'base/navbar.html' %}
+	{% endblock %}
     {% block header %}
         {% include 'base/header.html' %}
     {% endblock %}
