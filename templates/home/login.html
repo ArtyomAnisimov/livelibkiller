@@ -1,34 +1,36 @@
 {% include 'base/base.html' %}
 
 {% block body %}
-	<body>
-		{% block header %}
-		{% endblock %}
+  <body>
 
-		{% block content %}
-			<div class="row col s12">
-				<div class="row col s12"></div>
-				<div class="row col s4"></div>
-				<div class="row col s4">
-					<form class="col s12">
-						<div class="input-field col s12">
-							<input id="login" type="text" class="validate">
-							<label for="login">Логин:</label>
-						</div>
-						<div class="input-field col s12">
-							<input id="password" type="password" class="validate">
-							<label for="password">Пароль:</label>
-						</div>
-						<div class="input-field col s12">
-							<input id="submit" type="submit" class="validate" value="Вход">
-						</div>
-					</form>
-				</div>
-				<div class="row col s12"></div>
-			</div>
-		{% endblock %}
+    {% block header %}
+    {% endblock %}
 
-		{% block footer %}
-		{% endblock %}
-	</body>
+    {% block content %}
+      <div class="row">
+        <div class="row col s12"></div>
+        <div class="row col s4"></div>
+        <div class="row col s4">
+          <form class="col s12">
+            <div class="input-field col s12">
+              <input id="login" placeholder="Login" type="text" class="validate">
+              <label for="login" class="active">Логин:</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="password" type="password" placeholder="Password" class="validate">
+              <label for="password" class="active">Пароль:</label>
+            </div>
+            <div class="col s12">
+              <button class="btn waves-effect waves-light" type="submit" name="action">Вход</button>
+            </div>
+          </form>
+        </div>
+        <div class="row col s4"></div>
+      </div>
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+  
+  </body>
 {% endblock %}
