@@ -13,3 +13,6 @@ class Book(models.Model):
     description = models.TextField(verbose_name="Описание")
     where_buy = models.CharField(verbose_name="Где купить", max_length=255, blank=True)
     film = models.CharField(verbose_name="По ней снят фильм", max_length=100, blank=True)
+
+    def __str__(self):
+        return self.title

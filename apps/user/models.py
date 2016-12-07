@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
+from apps.books.models import Book
 from django.contrib.auth.models import User
 from django.db import models
 
 
 class UsersBook(models.Model):
-    book_name = models.CharField(verbose_name=u'Название', max_length=200)
-    comment = models.CharField(verbose_name=u'Комментарий', max_length=200)
-    user = models.ForeignKey('auth.User', verbose_name=u'Пользователь')
-    fav = models.BooleanField()
-    read = models.BooleanField()
-    wish = models.BooleanField()
+    book = models.ForeignKey(Book, verbose_name=u'Название')
+    comment = models.TextField(verbose_name=u'Комментарий')
+    user = models.ForeignKey(User, verbose_name=u'Пользователь')
+    fav = models.BooleanField(verbose_name=u'Любимая', default=False)
+    read = models.BooleanField(verbose_name=u'Прочитана', default=False)
+    wish = models.BooleanField(verbose_name=u'Хочу прочитаь', default=False)
 
     def __str__(self):
-        return self.name
+        return self.book.name
 
 
 class UserProfile(models.Model):
