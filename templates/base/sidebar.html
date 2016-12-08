@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/home/header.css' %}">
+
+<ul id="slide-out" class="side-nav z-depth-3">
+    <li>
+        <div class="userView">
+            <center><img src="{% static 'img/logo.png' %}"></center>
+            <a href="#!user"><img class="circle" src="<!-- Ссылка до авы юзера -->"></a>
+
+            <a href="#!name"><span class="name">Имя Фамилия</span></a>
+            <a href="#!email"><span class="email">123@gmail.com</span></a>
+        </div>
+    </li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li><a href="#!" class="waves-effect">Профиль</a></li>
+    <li><a href="#!" class="waves-effect">Выход</a></li>
+    <li><a class="waves-effect" href="#!">Сделать что-то ещё</a></li>
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse" style="position:absolute; z-index:2;"><i
+        class="medium material-icons white-text">menu</i></a>
+
+<div class="parallax-container" style="height:300px;">
+    <div class="parallax"><img src="img/parallax.jpg"></div>
+</div>
