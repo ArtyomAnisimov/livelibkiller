@@ -1,16 +1,17 @@
 {% load static %}
-
+{% extends 'base/base.html' %}
+{% block content %}
 
   <div class="row">
     <form class="col s12 blue-text">
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">Логин</label>
+          <label for="first_name">Р‹РѕРіРёРЅ</label>
         </div>
 		<div class="input-field col s6">
           <input id="password" type="password" class="validate">
-          <label for="password">Пароль</label>
+          <label for="password">С•Р°СЂРѕР»СЊ</label>
         </div>
       </div>
       <div class="row">
@@ -22,10 +23,10 @@
           <label for="email">Email</label>
         </div>
       </div>
-	  <!-- Ава -->
+	  <!-- СРІР° -->
 	  <div class="file-field input-field">
       <div class="btn">
-        <span>Аватарка</span>
+        <span>СРІР°С‚Р°СЂРєР°</span>
         <input type="file">
       </div>
       <div class="file-path-wrapper">
@@ -35,4 +36,5 @@
 
     </form>
   </div>
-        
+  
+{% endblock %}
