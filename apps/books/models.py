@@ -16,3 +16,7 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+class Genre(models.Model):
+	title = models.DateField(verbose_name="Название жанра", blank=True)
+    
