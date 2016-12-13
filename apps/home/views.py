@@ -1,10 +1,16 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
 from django.views.generic import TemplateView, FormView
+from django.contrib.auth.models import User
 
 
 class HomeView(TemplateView):
     template_name = "home/index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['User'] = User
+        return context
 
 
 class LoginFormView(FormView):
