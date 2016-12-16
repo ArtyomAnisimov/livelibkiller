@@ -14,6 +14,19 @@ class Genre(models.Model):
         return self.title
 
 
+class Autor(models.Model):
+    class Meta:
+        app_label = 'books'
+        ordering = ['name']
+        verbose_name_plural = 'Авторы'
+        verbose_name = 'Автор'
+
+    name = models.CharField(verbose_name='Автор', max_length=150)
+
+    def __str__(self):
+        return self.name
+
+
 class Book(models.Model):
     class Meta:
         app_label = 'books'
