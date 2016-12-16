@@ -42,6 +42,16 @@ class Collection(models.Model):
     name = models.CharField(verbose_name="Название подборки", max_length=150)
     books = models.ManyToManyField(Book, verbose_name="Книги")
 
+
+class Autor(models.Model):
+    class Meta:
+        app_label = 'books'
+        ordering = ['name']
+        verbose_name_plural = 'Авторы'
+        verbose_name = 'Автор'
+
+    name = models.CharField(verbose_name='Автор', max_length=150)
+
     def __str__(self):
         return self.name
 
