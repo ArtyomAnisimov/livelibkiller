@@ -36,6 +36,11 @@ class UserProfile(models.Model):
     rating = models.IntegerField(verbose_name='Рейтинг')
     status = models.CharField(verbose_name='Статус', max_length=160)
     about = models.TextField(verbose_name='О себе', max_length=160)
-
+	
     def __str__(self):
         return self.nickname
+
+class Autor(models.Model):
+	user = models.OneToOneField(User)
+	user_profile = models.OneToOneField(UserProfile)
+	created_books = models.ManyToManyField(Book)
