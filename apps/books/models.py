@@ -32,6 +32,20 @@ class Review(models.Model):
         return "Рецензия от {} к книге {}".format(self.user, self.book)
 
 
+class Collection(models.Model):
+    class Meta:
+        app_label = 'books'
+        ordering = ['name']
+        verbose_name_plural = 'Подборки'
+        verbose_name = 'Подборка'
+
+    name = models.CharField(verbose_name="Название подборки", max_length=150)
+    books = models.ManyToManyField(Book, verbose_name="Книги")
+
+    def __str__(self):
+        return self.name
+
+
 class Book(models.Model):
     class Meta:
         app_label = 'books'
