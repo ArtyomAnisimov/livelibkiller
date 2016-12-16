@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Genre(models.Model):
     class Meta:
         app_label = 'books'
@@ -13,6 +12,9 @@ class Genre(models.Model):
     def __str__(self):
         return self.title
 
+class Collection(models.Model):
+	name = models.CharField(verbose_name="Название подборки", max_length=50)
+	books = models.ManyToManyField(Book, verbose_name="Книги в подборки")
 
 class Book(models.Model):
     class Meta:
