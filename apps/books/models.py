@@ -26,6 +26,7 @@ class Review(models.Model):
     content = models.TextField(verbose_name="Содержание рецензии")
     user = models.ForeignKey(User, verbose_name="Пользователь")
     book = models.ForeignKey(Book, verbose_name="К какой книге рецензия")
+    created = models.DateTimeField(verbose_name="Дата создания", auto_now=True, blank=True)
 
     def __str__(self):
         return "Рецензия от {} к книге {}".format(self.user, self.book)
