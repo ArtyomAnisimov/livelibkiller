@@ -1,5 +1,6 @@
 from django.db import models
-
+from apps.user.models import User
+from apps.books.models import Book
 
 class Genre(models.Model):
     class Meta:
@@ -13,7 +14,11 @@ class Genre(models.Model):
     def __str__(self):
         return self.title
 
-
+class Review(models.Model):
+	content = models.TextField(verbose_name="Содержание рецензии")
+	user = ForeignKey(User)
+	book = ForeignKey(Book)
+		
 class Book(models.Model):
     class Meta:
         app_label = 'books'
