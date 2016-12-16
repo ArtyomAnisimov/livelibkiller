@@ -1,3 +1,5 @@
+from apps.books.models import Book
+from apps.user.models import User
 from django.db import models
 
 
@@ -12,6 +14,22 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Review(models.Model):
+    class Meta:
+        app_label = 'books'
+        ordering = ['?']
+        verbose_name_plural = 'Рецензии'
+        verbose_name = 'Рецензия'
+
+    content = models.TextField(verbose_name="Содержание рецензии")
+    user = models.ForeignKey(User, verbose_name="Пользователь")
+    book = models.ForeignKey(Book, verbose_name="К какой книге рецензия")
+    created = models.DateTimeField(verbose_name="Дата создания", auto_now=True, blank=True)
+
+    def __str__(self):
+        return "Рецензия от {} к книге {}".format(self.user, self.book)
 
 
 class Book(models.Model):
