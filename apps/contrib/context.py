@@ -7,4 +7,4 @@ def user_info(request):
         return {
             'user_info': UserProfile.objects.get(user=request.user)
         }
-    return None
+    return {}
