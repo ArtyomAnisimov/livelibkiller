@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from apps.books.models import Book
 from django.contrib.auth.models import User
 from django.db import models
