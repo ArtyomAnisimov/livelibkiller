@@ -8,4 +8,5 @@ class CreateFormView(FormView):
     success_url = '/'
 
     def form_valid(self, form):
+        form.save()
         return super(CreateFormView, self).form_valid(form)

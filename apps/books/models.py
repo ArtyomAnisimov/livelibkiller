@@ -25,7 +25,7 @@ class Author(models.Model):
     name = models.CharField(verbose_name='Автор', max_length=150)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 
 class Book(models.Model):
@@ -40,13 +40,14 @@ class Book(models.Model):
     name = models.CharField(verbose_name="Название", max_length=255)
     author = models.ManyToManyField(Author, verbose_name="Автор(ы)")
     genre = models.ManyToManyField(Genre, verbose_name="Жанр(ы)")
-    date_published = models.DateField(verbose_name="Дата создания", blank=True)
+    date_published = models.DateField(verbose_name="Дата создания", blank=True, null=True)
     date_created = models.DateField(verbose_name="Дата создания", auto_now=True)
     editor = models.CharField(verbose_name="Редактор", max_length=255, blank=True)
     publish = models.CharField(verbose_name="Издательство", max_length=100, blank=True)
     description = models.TextField(verbose_name="Описание")
     where_buy = models.CharField(verbose_name="Где купить", max_length=255, blank=True)
     film = models.CharField(verbose_name="По ней снят фильм", max_length=100, blank=True)
+    is_enabled = models.BooleanField(verbose_name="Доступна на сайте", default=False)
 
     def __str__(self):
         return self.title
