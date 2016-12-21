@@ -2,109 +2,102 @@
 {% load static %}
 
 {% block content %}
-
-<style>
-  body{
-    background-color:white;
-  };
-</style>
-<div class="container">
- 
-  <div class="row">
-
-    <div class="col s12 m5">
-
-      <div class="row new">
-        <h4 class="center-align">Новое</h4>
-        {% for x in '1234' %}
-          <div class="col s3">
-            <div class="card hoverable" >
-              <div class="card-image">
-              <a href="#" ><img src="https://cdn0.iconfinder.com/data/icons/reading/154/book-title-bookmark-cover-title-128.png"></a>
-              </div>
+    <div class="row">
+        <div class="col-xs-12  col-sm-4 col-md-4 col-lg-4">
+            <div class="row new">
+                <span class="hidden-lg hidden-md hidden-sm">xs</span>
+                <span class="hidden-lg hidden-md hidden-xs">sm</span>
+                <span class="hidden-lg hidden-xs hidden-sm">md</span>
+                <span class="hidden-sm hidden-xs hidden-md">lg</span>
+                <h4 class="center-align">Новое</h4>
+                {% for x in '1234' %}
+                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <a href="#">
+                                    <img class="responsive-img"
+                                         src="https://cdn0.iconfinder.com/data/icons/reading/154/book-title-bookmark-cover-title-128.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-          </div>
-        {% endfor %}
-      </div>
-
-      <div class="divider"></div>
-
-        <div class="row new">
-          <h4 class="center-align">Рецензии</h4>
-          {% for x in '1234' %}
-            <div class="col s12">
-              <div class="card horizontal valign-wrapper hoverable">
-                <div class="card-image ">
-                  <img src="https://cdn0.iconfinder.com/data/icons/reading/154/book-title-bookmark-cover-title-128.png">
-                </div>
-                <div class="card-stacked">
-                <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information.</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">ЧИТАТЬ РЕЦЕНЗИЮ</a>
-                </div>
-                </div>
-              </div>
+            <div class="divider"></div>
+            <div class="row new">
+                <h4 class="center-align">Рецензии</h4>
+                {% for x in '1234' %}
+                    <div class="col s12">
+                        <div class="card horizontal valign-wrapper hoverable">
+                            <div class="card-image ">
+                                <img src="https://cdn0.iconfinder.com/data/icons/reading/154/book-title-bookmark-cover-title-128.png">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of
+                                        information.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">ЧИТАТЬ РЕЦЕНЗИЮ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-          {% endfor %}
+
+            <div class="divider"></div>
+
+            <div class="row random">
+                <h4 class="center-align">Случайные книги</h4>
+                {% for x in '1234' %}
+                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <a href="#">
+                                    <img class="responsive-img"
+                                         src="https://cdn0.iconfinder.com/data/icons/reading/154/book-title-bookmark-cover-title-128.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
 
-        <div class="divider"></div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 
-        <div class="row random">
-          <h4 class="center-align">Случайные книги</h4>
-          {% for x in '1234' %}
-            <div class="col s3">
-              <div class="card hoverable">
-                <div class="card-image">
-                  <a href="#" ><img src="https://cdn0.iconfinder.com/data/icons/reading/154/book-title-bookmark-cover-title-128.png"></a>
-                </div>
-              </div>
+            <h1>LiveLibKiller</h1>
+            <h1>убийца LiveLib</h1>
+            <p class="flow-text">
+                "Текст про то, какой livelibkiller офигенный сервис"
+            </p>
+            <h1>1234 книги</h1>
+            <h1>234 отзывов</h1>
+            <h1>346 пользователя</h1>
+            <div class="divider"></div>
+            <div class="advertisement">
+                <h1>Реклама</h1>
+                <h1>Реклама</h1>
             </div>
-          {% endfor %}
+
+            <div class="divider"></div>
+
+            <h1>Новости</h1>
+            {% for x in '123' %}
+                <div class="card hoverable ">
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am
+                            convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Ссылка здесь</a>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-
-    <div class="col s12 m7 ">
-
-      <h1>LiveLibKiller</h1>
-      <h1>убийца LiveLib</h1>
-      <p class="flow-text">
-        "Текст про то, какой livelibkiller офигенный сервис"
-      </p>
-      <h1>1234 книги</h1>
-      <h1>234 отзывов</h1>
-      <h1>346 пользователя</h1>
-      <div class="divider"></div>
-      <div class="advertisement">
-        <h1>Реклама</h1>
-        <h1>Реклама</h1>
-      </div>
-
-      <div class="divider"></div>
-
-      <h1>Новости</h1>
-      {% for x in '123' %}
-       <div class="card hoverable ">
-         <div class="card-content">
-           <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-         </div>
-         <div class="card-action">
-           <a href="#">Ссылка здесь</a>
-         </div>
-       </div>
-       {% endfor %}
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<script type="text/javascript">
-// Initialize collapse button
-$(".button-collapse").sideNav();
-</script>
+    <script type="text/javascript">
+        // Initialize collapse button
+        $(".button-collapse").sideNav();
+    </script>
 {% endblock %}
+
