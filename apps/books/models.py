@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -14,6 +15,19 @@ class Genre(models.Model):
         return self.title
 
 
+class Author(models.Model):
+    class Meta:
+        app_label = 'books'
+        ordering = ['name']
+        verbose_name_plural = 'Авторы'
+        verbose_name = 'Автор'
+
+    name = models.CharField(verbose_name='Автор', max_length=150)
+
+    def __str__(self):
+        return self.name
+
+
 class Book(models.Model):
     class Meta:
         app_label = 'books'
@@ -24,9 +38,10 @@ class Book(models.Model):
     title = models.CharField(verbose_name="Заголовок", max_length=50)
     cover = models.ImageField(verbose_name="Обложка", blank=True)
     name = models.CharField(verbose_name="Название", max_length=255)
-    author = models.CharField(verbose_name="Автор", max_length=255)
+    author = models.ManyToManyField(Author, verbose_name="Автор(ы)")
     genre = models.ManyToManyField(Genre, verbose_name="Жанр(ы)")
-    data_creation = models.DateField(verbose_name="Дата создания", blank=True)
+    date_published = models.DateField(verbose_name="Дата создания", blank=True)
+    date_created = models.DateField(verbose_name="Дата создания", auto_now=True)
     editor = models.CharField(verbose_name="Редактор", max_length=255, blank=True)
     publish = models.CharField(verbose_name="Издательство", max_length=100, blank=True)
     description = models.TextField(verbose_name="Описание")
@@ -35,3 +50,14 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Collection(models.Model):
+    class Meta:
+        app_label = 'books'
+        ordering = ['name']
+        verbose_name_plural = 'Подборки'
+        verbose_name = 'Подборка'
+
+    name = models.CharField(verbose_name="Название подборки", max_length=150)
+    books = models.ManyToManyField(Book, verbose_name="Книги")
