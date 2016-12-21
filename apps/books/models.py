@@ -61,3 +61,9 @@ class Collection(models.Model):
 
     name = models.CharField(verbose_name="Название подборки", max_length=150)
     books = models.ManyToManyField(Book, verbose_name="Книги")
+
+
+from apps.notificate import notificate
+
+notificate.register(Author)
+notificate.register(Genre)

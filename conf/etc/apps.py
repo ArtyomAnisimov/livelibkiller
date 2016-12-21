@@ -4,4 +4,5 @@ PROJECT_APPS = (
     'apps.books',
     'apps.bookmarks',
     'apps.reviews',
+    'apps.notificate',
 )
