@@ -18,9 +18,16 @@
         <li><a href="#!" class="waves-effect">Профиль</a></li>
         <li><a href="#!" class="waves-effect">Выход</a></li>
     {% else %}
-        <li><a class="waves-effect" href="#!">Вход</a></li>
+        <li><a class="waves-effect" href="{% url 'index:login' %}"><i class="material-icons left">lock</i>Вход</a></li>
     {% endif %}
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li><a href=""><i class="material-icons left">book</i>Книги</a></li>
+    <li><a href=""><i class="material-icons left">bookmark</i>Закладки</a></li>
+    <li><a href=""><i class="material-icons left">speaker_notes</i>Рецензии</a></li>
 </ul>
+
 
 
 <!--
