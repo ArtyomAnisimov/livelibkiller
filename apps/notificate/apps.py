@@ -11,3 +11,4 @@ class NotificationConfig(AppConfig):
             notificate.apply_models()
         except OperationalError:
             pass
+        from . import signals

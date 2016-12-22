@@ -1,3 +1,7 @@
+from django.db.models.signals import post_save, post_delete
+from .signal_handlers import save_handler, delete_handler
+
+
 class NotificateRegistry:
     def __init__(self):
         self._registry = {}
@@ -5,6 +9,7 @@ class NotificateRegistry:
     def register(self, *models):
         for model in models:
             if not model in self._registry.values():
+                # extract ModelClass from "<'pack_name_1.pack_name_2.pack_name_N.models.ModelClass'>"
                 self._registry[repr(model).split('.')[-1].split('\'')[0]] = model
 
     def apply_models(self):
@@ -18,6 +23,10 @@ class NotificateRegistry:
             NotificationModel.objects.all().delete()
 
         NotificationModel.objects.bulk_create(
-            [NotificationModel(model=model, module=module.__module__)
-             for model, module in self._registry.items()])
+            [NotificationModel(model=model_str, module=model.__module__)
+             for model_str, model in self._registry.items()])
 
+    def apply_signals(self):
+        for model in self._registry.values():
+            post_save.connect(save_handler, sender=model)
+            post_delete.connect(delete_handler, sender=model)
