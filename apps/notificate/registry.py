@@ -7,12 +7,17 @@ class NotificateRegistry:
             if not model in self._registry.values():
                 self._registry[repr(model).split('.')[-1].split('\'')[0]] = model
 
-    def apply_models(self, query):
+    def apply_models(self):
         """
-        Gets query - registered models. On django start it should be empty.
-        Otherwise, it needs to be cleared
+            When app init, registered models should be re-registered again, because
+            it rather simplier than checking for existing registered models, removing non-existing registered models,
+            adding new registered models, etc...
         """
-        for k, v in self._registry.items():
-            print("Applying {} model...".format(k))
-            print(v.__module__)
+        from .models import NotificationModel
+        if NotificationModel.objects.exists():
+            NotificationModel.objects.all().delete()
+
+        NotificationModel.objects.bulk_create(
+            [NotificationModel(model=model, module=module.__module__)
+             for model, module in self._registry.items()])
 

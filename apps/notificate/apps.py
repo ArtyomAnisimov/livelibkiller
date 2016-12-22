@@ -6,10 +6,8 @@ class NotificationConfig(AppConfig):
     verbose_name = "Уведомления"
 
     def ready(self):
-        from .models import NotificationModel
-        from . import notificate
         try:
-            registry_models = NotificationModel.objects
-            notificate.apply_models(registry_models)
+            from . import notificate
+            notificate.apply_models()
         except OperationalError:
             pass
