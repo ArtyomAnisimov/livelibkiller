@@ -8,9 +8,7 @@ class NotificateRegistry:
 
     def register(self, *models):
         for model in models:
-            if not model in self._registry.values():
-                # extract ModelClass from "<'pack_name_1.pack_name_2.pack_name_N.models.ModelClass'>"
-                self._registry[repr(model).split('.')[-1].split('\'')[0]] = model
+            self._registry[model.__name__] = model
 
     def apply_models(self):
         """

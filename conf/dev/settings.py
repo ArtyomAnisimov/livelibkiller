@@ -101,3 +101,6 @@ SESSION_SAVE_EVERY_REQUEST = True
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
+
+RABBIT_HOST = 'localhost'
+RABBIT_PORT = '5672'
